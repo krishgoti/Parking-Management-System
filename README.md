@@ -1,442 +1,393 @@
-# 🚗 Parking Management System
+🚗 Parking Management System
 
-A **C++ Object-Oriented Programming (OOP)** project that demonstrates how a real-world parking facility can be modeled using classes, objects, encapsulation, inheritance, polymorphism, and abstraction.
+A Java-based Object-Oriented Programming (OOP) project designed to manage basic parking operations using Core Java and fundamental OOP principles.
 
-> **Project:** Parking Management System  
-> **Language:** C++  
-> **Focus:** Object-Oriented Programming (OOP)  
-> **Author:** Krish Goti
+📌 Overview
 
----
+The Parking Management System is a console-based Java application created to demonstrate how a real-world parking problem can be modeled using objects and classes.
 
-## 📌 Overview
+The project focuses on clean object-oriented design and practical implementation of Java concepts such as:
 
-The **Parking Management System** is a console-based C++ project developed to represent the basic operations of a parking facility.
+Classes and Objects
 
-The project applies Object-Oriented Programming concepts to organize parking-related data and operations into reusable and maintainable components.
+Encapsulation
 
-The main goal of this project is to understand how OOP can be used to solve a practical real-world problem while keeping the code structured and easy to extend.
+Inheritance
 
----
+Polymorphism
 
-## 🎯 Objectives
+Abstraction
 
-- Manage basic parking operations using C++.
-- Represent real-world entities using classes and objects.
-- Demonstrate the four major pillars of OOP.
-- Practice constructors, destructors, access modifiers, and methods.
-- Improve code reusability and maintainability.
-- Apply OOP concepts to a practical problem.
+Constructors
 
----
+Access Modifiers
 
-## ✨ Key Features
+Method Overloading and Overriding
 
-- 🚘 Vehicle information management
-- 🅿️ Parking space management
-- 🎫 Parking entry and exit handling
-- 💰 Parking fee calculation
-- 📋 Display of parking-related information
-- 🔄 Menu-driven console interface
-- 🧩 Object-oriented program structure
+Exception Handling
 
-> The exact functionality depends on the implementation in the source code.
+🎯 Objectives
 
----
+Build a parking management application using Java.
 
-# 🧠 OOP Concepts Demonstrated
+Apply OOP concepts to a real-world problem.
 
-## 1. Classes
+Manage vehicle and parking information in a structured way.
 
-A class acts as a blueprint for creating objects.
+Practice reusable and maintainable Java code.
 
-```cpp
+Strengthen Core Java and OOP programming skills.
+
+✨ Features
+
+🚘 Vehicle information management
+
+🅿️ Parking-related operations
+
+🎫 Vehicle parking and exit handling
+
+🔎 Vehicle information/search functionality
+
+💰 Parking charge handling where applicable
+
+📋 Display parking information
+
+🖥️ Menu-driven console interface
+
+The exact operations depend on the functionality implemented in the project source code.
+
+🧠 OOP Concepts Used
+
+1. Classes and Objects
+
+Classes define the structure and behavior of system entities, while objects represent actual instances.
+
 class Vehicle {
-private:
-    string vehicleNumber;
+    private String vehicleNumber;
 
-public:
-    void displayDetails();
-};
-```
+    public void displayDetails() {
+        System.out.println(vehicleNumber);
+    }
+}
 
-Classes help group related data and functions together.
+Vehicle car = new Vehicle();
 
----
+2. Encapsulation
 
-## 2. Objects
+Data is kept private and accessed through public methods.
 
-An object is an instance of a class.
-
-```cpp
-Vehicle car;
-Vehicle bike;
-```
-
-Objects are used to access the properties and functions defined by their class.
-
----
-
-## 3. Encapsulation
-
-Encapsulation combines data and methods inside a class and controls access using access modifiers.
-
-```cpp
 class Vehicle {
-private:
-    string vehicleNumber;
+    private String vehicleNumber;
 
-public:
-    void setVehicleNumber(string number) {
-        vehicleNumber = number;
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
     }
 
-    string getVehicleNumber() {
+    public String getVehicleNumber() {
         return vehicleNumber;
     }
-};
-```
+}
 
-### Benefits
+Benefits: data protection, controlled access, and better maintainability.
 
-- Protects data
-- Provides controlled access
-- Improves maintainability
-- Keeps implementation organized
+3. Inheritance
 
----
+Inheritance allows a class to reuse properties and methods from another class.
 
-## 4. Inheritance
-
-Inheritance allows one class to reuse the properties and behavior of another class.
-
-```cpp
 class Vehicle {
-public:
-    void displayVehicle();
-};
+    void displayVehicle() {
+        System.out.println("Vehicle");
+    }
+}
 
-class Car : public Vehicle {
-public:
-    void displayCar();
-};
-```
+class Car extends Vehicle {
+    void displayCar() {
+        System.out.println("Car");
+    }
+}
 
-Here, `Car` inherits from `Vehicle`.
+4. Polymorphism
 
-### Benefits
+Polymorphism allows the same method/interface to have different behavior.
 
-- Code reusability
-- Reduced duplication
-- Better class hierarchy
-- Easier maintenance
+Method Overloading:
 
----
+class Parking {
+    void calculateFee(int hours) {
+        System.out.println("Fee based on hours");
+    }
 
-## 5. Polymorphism
+    void calculateFee(int hours, String vehicleType) {
+        System.out.println("Fee based on hours and vehicle type");
+    }
+}
 
-Polymorphism allows the same function or interface to behave differently for different objects.
+Method Overriding:
 
-Example using function overriding:
-
-```cpp
 class Vehicle {
-public:
-    virtual void displayDetails() {
-        cout << "Vehicle Details";
+    void displayDetails() {
+        System.out.println("Vehicle details");
     }
-};
+}
 
-class Car : public Vehicle {
-public:
-    void displayDetails() override {
-        cout << "Car Details";
+class Car extends Vehicle {
+    @Override
+    void displayDetails() {
+        System.out.println("Car details");
     }
-};
-```
+}
 
-The same `displayDetails()` function can produce different behavior depending on the object.
+5. Abstraction
 
----
+Abstraction hides implementation details and exposes only the required functionality.
 
-## 6. Abstraction
+abstract class Vehicle {
+    abstract void calculateFee();
+}
 
-Abstraction hides unnecessary implementation details and exposes only the required functionality.
+Abstraction can also be implemented using interfaces.
 
-For example, a user can perform parking operations without needing to know the internal logic used for slot management or fee calculation.
+6. Constructors
 
-### Benefits
+Constructors initialize objects when they are created.
 
-- Reduces complexity
-- Improves usability
-- Separates implementation from usage
-- Makes the system easier to maintain
-
----
-
-## 7. Constructors
-
-Constructors are special member functions that are automatically called when an object is created.
-
-```cpp
 class Vehicle {
-public:
-    Vehicle() {
-        cout << "Vehicle created";
+    String vehicleNumber;
+
+    Vehicle(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
     }
-};
-```
+}
 
-Constructors are useful for initializing objects.
+7. Exception Handling
 
----
+Exception handling can be used to manage invalid input and runtime problems.
 
-## 8. Destructors
+try {
+    // code
+} catch (Exception e) {
+    System.out.println("Invalid input");
+}
 
-Destructors are automatically called when an object is destroyed.
+🔄 System Workflow
 
-```cpp
-class Vehicle {
-public:
-    ~Vehicle() {
-        cout << "Vehicle destroyed";
-    }
-};
-```
+                 ┌───────────────┐
+                 │     START     │
+                 └───────┬───────┘
+                         │
+                         ▼
+               ┌───────────────────┐
+               │   Display Menu    │
+               └─────────┬─────────┘
+                         │
+                         ▼
+                ┌────────────────┐
+                │  Select Option │
+                └───────┬────────┘
+                        │
+            ┌───────────┼──────────────┐
+            │           │              │
+            ▼           ▼              ▼
+       Add / Park   View Details   Exit Vehicle
+         Vehicle         │              │
+            │            │              ▼
+            ▼            │        Calculate Charge
+      Store Details      │              │
+            │            │              │
+            └────────────┼──────────────┘
+                         │
+                         ▼
+                   Display Result
+                         │
+                         ▼
+                    Main Menu
+                         │
+                         ▼
+                        EXIT
 
-They can be used for cleanup and resource management.
+🛠️ Technologies Used
 
----
+Technology
 
-# 🔄 System Workflow
+Purpose
 
-```text
-                    ┌───────────────┐
-                    │     START     │
-                    └───────┬───────┘
-                            │
-                            ▼
-                  ┌───────────────────┐
-                  │   Display Menu    │
-                  └─────────┬─────────┘
-                            │
-                            ▼
-                   ┌────────────────┐
-                   │  Select Option │
-                   └───────┬────────┘
-                           │
-              ┌────────────┼─────────────┐
-              │            │             │
-              ▼            ▼             ▼
-        Add / Park     View Details   Exit Vehicle
-          Vehicle           │             │
-              │             │             ▼
-              ▼             │        Calculate Fee
-        Assign Slot         │             │
-              │             │             │
-              └─────────────┼─────────────┘
-                            │
-                            ▼
-                     Display Result
-                            │
-                            ▼
-                       Main Menu
-                            │
-                            ▼
-                           EXIT
-```
+Java
 
----
+Main programming language
 
-# 🏗️ Conceptual Design
+Core Java
 
-A simple object-oriented structure can be represented as:
+Application development
 
-```text
-                         Vehicle
-                            │
-             ┌──────────────┼──────────────┐
-             │              │              │
-             ▼              ▼              ▼
-           Car            Bike          Other Vehicle
-             │              │              │
-             └──────────────┼──────────────┘
-                            │
-                            ▼
-                 Parking Management
-                            │
-                            ▼
-                    Slot Management
-                            │
-                            ▼
-                    Fee Management
-```
+OOP
 
-This structure allows common vehicle behavior to be reused while keeping specific behavior separate.
+Program architecture
 
----
+Java Collections
 
-# 🛠️ Technologies Used
+Data management where required
 
-| Technology | Purpose |
-|---|---|
-| **C++** | Core programming language |
-| **OOP** | Program architecture and design |
-| **STL / Standard Library** | Utility and data handling where required |
-| **Console Interface** | User interaction |
+Exception Handling
 
----
+Error/input handling
 
-# 💻 Requirements
+Console UI
 
-To run the project, you need:
+User interaction
 
-- A C++ compiler
-- GCC / MinGW / g++
-- Visual Studio Code, Code::Blocks, Dev-C++, Visual Studio, or another C++ IDE
-- Windows, Linux, or macOS
+💻 Requirements
 
----
+Java Development Kit (JDK 17+ recommended)
 
-# 🚀 How to Run
+javac and java
 
-## 1. Clone the Repository
+IntelliJ IDEA, Eclipse, VS Code, NetBeans, or another Java IDE
 
-```bash
+🚀 How to Run
+
+1. Clone the repository
+
 git clone https://github.com/krishgoti/Parking-Management-System.git
-```
-
-## 2. Open the Project
-
-```bash
 cd Parking-Management-System
-```
 
-## 3. Compile
+2. Open the project
 
-If the project has a single `main.cpp` file:
+Open the project in your Java IDE.
 
-```bash
-g++ main.cpp -o parking
-```
+3. Compile
 
-If the project contains multiple `.cpp` files:
+For a simple project with a Main.java entry point:
 
-```bash
-g++ *.cpp -o parking
-```
+javac Main.java
 
-## 4. Run
+4. Run
 
-### Windows
+java Main
 
-```bash
-parking.exe
-```
+If the project uses packages or multiple source files, run the main class from your IDE or compile the required source files together.
 
-### Linux / macOS
+📂 Suggested Structure
 
-```bash
-./parking
-```
-
-> If your project uses a different file structure, compile the required source files according to your setup.
-
----
-
-# 📂 Suggested Project Structure
-
-```text
 Parking-Management-System/
 │
-├── main.cpp
-├── *.cpp
-├── *.h
-└── README.md
-```
+├── src/
+│   ├── Main.java
+│   ├── Vehicle.java
+│   ├── Parking.java
+│   ├── ParkingSlot.java
+│   └── ...
+│
+├── README.md
+└── .gitignore
 
-The source files contain the implementation of the parking management system, while header files can be used for class declarations and reusable interfaces.
+Update the example filenames to match your actual source files.
 
----
+📊 OOP Concepts Summary
 
-# 📊 OOP Concepts Summary
+Concept
 
-| Concept | Purpose in the Project |
-|---|---|
-| **Class** | Defines system entities and their behavior |
-| **Object** | Represents instances of those entities |
-| **Encapsulation** | Protects and controls access to data |
-| **Inheritance** | Reuses common properties and methods |
-| **Polymorphism** | Allows different behaviors through a common interface |
-| **Abstraction** | Hides unnecessary implementation details |
-| **Constructor** | Initializes objects |
-| **Destructor** | Performs cleanup when objects are destroyed |
+Purpose
 
----
+Class
 
-# 🎓 Learning Outcomes
+Blueprint for system entities
 
-Through this project, the following skills are practiced:
+Object
 
-- Understanding C++ classes and objects
-- Applying encapsulation
-- Implementing inheritance
-- Understanding polymorphism
-- Applying abstraction
-- Using constructors and destructors
-- Designing reusable program components
-- Converting a real-world problem into an OOP solution
-- Improving logical thinking and problem-solving
-- Writing organized and maintainable C++ code
+Instance of a class
 
----
+Encapsulation
 
-# 🔮 Future Enhancements
+Protects and controls data
 
-The project can be extended with:
+Inheritance
 
-- 🗄️ Database integration
-- 🌐 Web-based parking management
-- 📱 Mobile application
-- 🔐 User authentication
-- 👨‍💼 Admin dashboard
-- 🅿️ Real-time slot availability
-- 📊 Parking analytics and reports
-- 💳 Online payment integration
-- 🎫 Digital parking tickets
-- 🔔 Notifications and alerts
-- 🔍 Vehicle search and filtering
-- 🧾 Automatic receipt generation
-- 📈 Advanced reporting
+Reuses existing functionality
 
----
+Polymorphism
 
-# 📌 Why This Project?
+Supports multiple behaviors
 
-Parking is a practical real-world problem that contains multiple entities and relationships, making it a suitable example for learning Object-Oriented Programming.
+Abstraction
 
-This project demonstrates how OOP concepts can be combined to build a structured solution instead of keeping all logic inside a single program.
+Hides implementation details
 
----
+Constructor
 
-# 👨‍💻 Author
+Initializes objects
 
-## Krish Goti
+Exception Handling
 
-GitHub:  
-https://github.com/krishgoti
+Handles runtime/input problems
 
-Project Repository:  
-https://github.com/krishgoti/Parking-Management-System
+🎓 Learning Outcomes
 
----
+Through this project, you practice:
 
-# ⭐ Conclusion
+Core Java programming
 
-The **Parking Management System** is a C++ OOP project created to demonstrate how fundamental Object-Oriented Programming concepts can be applied to a real-world problem.
+Classes and objects
 
-By using classes, objects, encapsulation, inheritance, polymorphism, abstraction, constructors, and destructors, the project provides practical experience in designing structured and reusable C++ applications.
+Encapsulation
 
----
+Inheritance
 
-⭐ If you find this project useful, consider giving the repository a star!
+Polymorphism
+
+Abstraction
+
+Constructors and access modifiers
+
+Method overloading and overriding
+
+Exception handling
+
+Object-oriented software design
+
+Code reuse and maintainability
+
+Real-world problem solving with Java
+
+🔮 Future Enhancements
+
+Possible improvements include:
+
+🗄️ MySQL database integration using JDBC
+
+🔐 User authentication
+
+👨‍💼 Admin panel
+
+🅿️ Real-time parking slot availability
+
+💳 Online payment integration
+
+🎫 Digital parking tickets
+
+📊 Parking analytics and reports
+
+🧾 Automatic receipt generation
+
+🔔 Notifications
+
+🖥️ Java Swing / JavaFX GUI
+
+🌐 Web-based version
+
+📚 Academic Purpose
+
+This project was developed as an Object-Oriented Programming project in Java to demonstrate practical application of OOP concepts to a real-world parking management problem.
+
+👨‍💻 Author
+
+Krish Goti
+
+GitHub: https://github.com/krishgoti
+
+Repository: https://github.com/krishgoti/Parking-Management-System
+
+⭐ Conclusion
+
+The Parking Management System demonstrates how Java and Object-Oriented Programming can be used to build a structured solution for a practical problem.
+
+The project focuses on classes, objects, encapsulation, inheritance, polymorphism, abstraction, constructors, and exception handling, providing hands-on experience with Core Java and OOP design.
